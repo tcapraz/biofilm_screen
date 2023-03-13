@@ -5,7 +5,9 @@ library(dplyr)
 library(stringr)
 library(reshape2)
 library(tidyverse)
-pred = read.csv("/home/tuemay/biofilm/transfer_learning/structure_predictions.csv")
+
+setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
+pred = read.csv("../classification/structure_predictions.csv")
 pred = pred[pred$day == "Day5",]
 
 cond_df = lapply(unique(pred$cond), function(x){
